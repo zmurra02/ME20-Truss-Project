@@ -16,10 +16,11 @@ rJ=[1.875 0 0];
 rK=[2.5 0 0];
 
 Ay=-(0.1)*(9.81);
+By=-(0.2)*(9.81);
 syms Hx Hy Ky
 
 fA=[0 Ay 0];
-fB=[0 0 0];
+fB=[0 By 0];
 fC=[0 0 0];
 fD=[0 0 0];
 fE=[0 0 0];
@@ -43,7 +44,7 @@ figure(2)
 hold on
 
 Hx=0;
-Hy=0.736;
+Hy=1.717;
 
 rA=[0.625 1.25 0];
 rB=[1.25 1.25 0];
@@ -61,7 +62,7 @@ qK=120*pi/180;
 fGKx=fGK*cos(qK);
 fGKy=fGK*sin(qK);
 fA=[0 Ay 0];
-fB=[0 0 0];
+fB=[0 By 0];
 fC=[0 0 0];
 fD=[0 0 0];
 fE=[0 0 0];
@@ -91,7 +92,7 @@ figure(3)
 hold on
 
 Hx=0;
-Hy=0.736;
+Hy=1.717;
 
 rA=[0.625 1.25 0];
 rB=[1.25 1.25 0];
@@ -109,7 +110,7 @@ fCGy=fCG*sin(2*pi/3);
 fJGx=fJG*cos(pi/3);
 fJGy=fJG*sin(pi/3);
 fA=[0 Ay 0];
-fB=[0 0 0];
+fB=[0 By 0];
 fC=[fCGx fCGy 0];
 fD=[0 0 0];
 fE=[0 0 0];
@@ -117,7 +118,7 @@ fF=[0 0 0];
 fH=[Hx Hy 0];
 fI=[0 0 0];
 fJ=[fJGx fJGy 0];
-fJ2=[0.1410 0 0];
+fJ2=[0.708 0 0];
 
 ffs=[fA;fB;fC;fJ;fJ2;fF;fC*0;fJ*0;fJ*0;fI;fH;fD;fI*0;fD*0;fA*0;fI*0;fE;fA*0;fE*0;fB*0;fF*0];
 rrs=[rA;rB;rC;rJ;rJ;rF;rC;rJ;rJ;rI;rH;rD;rI;rD;rA;rI;rE;rA;rE;rB;rF];
@@ -139,7 +140,7 @@ figure(4)
 hold on
 
 Hx=0;
-Hy=0.736;
+Hy=1.717;
 
 rA=[0.625 1.25 0];
 rB=[1.25 1.25 0];
@@ -158,22 +159,23 @@ fFCy=fFC*sin(pi/3);
 
 fA=[0 Ay 0];
 fB=[fBC 0 0];
+fB2=[0 By 0];
 fD=[0 0 0];
 fE=[0 0 0];
 fF=[fFCx fFCy 0];
 fH=[Hx Hy 0];
 fI=[0 0 0];
 fJ=[0 fCJ 0];
-fJ2=[0.1420 0 0];
+fJ2=[0.708 0 0];
 
-ffs=[fA;fB;fJ;fF;fJ2;fI;fH;fD;fI*0;fD*0;fA*0;fI*0;fE;fA*0;fE*0;fB*0;fF*0];
-rrs=[rA;rB;rJ;rF;rJ;rI;rH;rD;rI;rD;rA;rI;rE;rA;rE;rB;rF];
+ffs=[fA;fB;fB2;fJ;fF;fJ2;fI;fH;fD;fI*0;fD*0;fA*0;fI*0;fE;fA*0;fE*0;fB*0;fF*0];
+rrs=[rA;rB;rB;rJ;rF;rJ;rI;rH;rD;rI;rD;rA;rI;rE;rA;rE;rB;rF];
 
 [mH4, fH4, VarSoln4, VarList4, ffnew_ii4]=GenRigidBodyEquilibrium(ffs, rrs)
 
-CJ=ffnew_ii2(3,:);
+CJ=ffnew_ii2(4,:);
 BC=ffnew_ii(2,:);
-FC=ffnew_ii(4,:);
+FC=ffnew_ii(5,:);
 
 flist3=[CJ;BC;FC];
 rlist5=[rJ;rB;rF];
@@ -187,7 +189,7 @@ figure(5)
 hold on
 
 Hx=0;
-Hy=0.736;
+Hy=1.717;
 
 rA=[0.625 1.25 0];
 rB=[1.25 1.25 0];
@@ -202,15 +204,16 @@ fBJx=fBJ*cos(2*pi/3);
 fBJy=fBJ*sin(2*pi/3);
 
 fA=[0 Ay 0];
-fB=[-0.142 0 0];
+fB=[-0.708 0 0];
+fB3=[0 By 0];
 fB2=[fBJx fBJy 0];
 fD=[0 0 0];
 fE=[0 0 0];
 fH=[Hx Hy 0];
 fI=[fIJ 0 0];
 
-ffs=[fA;fB;fB2;fI;fH;fD;fI*0;fD*0;fA*0;fI*0;fE;fA*0;fE*0;fB*0];
-rrs=[rA;rB;rB;rI;rH;rD;rI;rD;rA;rI;rE;rA;rE;rB];
+ffs=[fA;fB;fB2;fI;fH;fD;fI*0;fD*0;fA*0;fI*0;fE;fA*0;fE*0;fB*0; fB3];
+rrs=[rA;rB;rB;rI;rH;rD;rI;rD;rA;rI;rE;rA;rE;rB;rB];
 
 [mH4, fH4, VarSoln4, VarList4, ffnew_ii4]=GenRigidBodyEquilibrium(ffs, rrs)
 
@@ -222,14 +225,14 @@ rlist7=[rB;rI];
 rlist8=[rJ;rJ];
 
 VisualizeTensionCompression(flist4, rlist7, rlist8)
-title('Method of Sections B')
+title('Method of Sections J')
 
 %Method of Sections for B
 figure(6)
 hold on
 
 Hx=0;
-Hy=0.736;
+Hy=1.717;
 
 rA=[0.625 1.25 0];
 
@@ -249,7 +252,7 @@ fA2=[fAB 0 0];
 fD=[0 0 0];
 fE=[fBEx fBEy 0];
 fH=[Hx Hy 0];
-fI=[0.283 0 0];
+fI=[1.416 0 0];
 
 ffs=[fA;fA2;fI;fH;fD;fI*0;fD*0;fA*0;fI*0;fE;fA*0;fE*0];
 rrs=[rA;rA;rI;rH;rD;rI;rD;rA;rI;rE;rA;rE];
@@ -264,14 +267,14 @@ rlist9=[rA;rE];
 rlist10=[rB;rB];
 
 VisualizeTensionCompression(flist5, rlist9, rlist10)
-title('Method of Sections E')
+title('Method of Sections B')
 
 %Method of Sections for E
 figure(7)
 hold on
 
 Hx=0;
-Hy=0.736;
+Hy=1.717;
 
 rA=[0.625 1.25 0];
 
@@ -288,13 +291,13 @@ fEIx=fEI*cos(pi/3);
 fEIy=fEI*sin(pi/3);
 
 fA=[0 Ay 0];
-fA2=[-0.425 0 0];
+fA2=[-0.991 0 0];
 fA3=[fAEx fAEy 0];
 
 fD=[0 0 0];
 
 fH=[Hx Hy 0];
-fI=[0.283 0 0];
+fI=[1.416 0 0];
 fI2=[fEIx fEIy 0];
 
 ffs=[fA;fA2;fA3;fI;fI2;fH;fD;fI*0;fD*0;fA*0;fI*0;fA*0];
@@ -317,7 +320,7 @@ figure(8)
 hold on
 
 Hx=0;
-Hy=0.736;
+Hy=1.717;
 
 rD=[0.3125 0.625 0];
 rH=[0 0 0];
@@ -331,8 +334,8 @@ fADy=fAD*sin(pi/3);
 fD=[fADx fADy 0];
 
 fH=[Hx Hy 0];
-fI=[0.283 0 0];
-fI2=[0.1415 0.2451 0];
+fI=[1.416 0 0];
+fI2=[-0.425 -0.7361 0];
 fI3=[0 fAI 0];
 
 ffs=[fI;fI2;fI3;fH;fD;fI*0;fD*0;fI*0];
@@ -355,7 +358,7 @@ figure(9)
 hold on
 
 Hx=0;
-Hy=0.736;
+Hy=1.717;
 
 rD=[0.3125 0.625 0];
 rH=[0 0 0];
@@ -366,7 +369,7 @@ syms fDI fHI
 fDIx=fDI*cos(2*pi/3);
 fDIy=fDI*sin(2*pi/3);
 
-fD=[-0.4245 -0.7353 0];
+fD=[-0.991 -1.7165 0];
 fD2=[fDIx fDIy 0];
 
 fH=[Hx Hy 0];
